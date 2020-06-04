@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input,
+button {
+    outline: 0;
+}
+
+body {
+    background: #f5f0f0;
+    font: 16px "Poppins", sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.content {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+header#main-header {
+    background: #da1a2c;
+    color: #fff;
+    height: 238px;
+
+    width: 100vw;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+header#main-header .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 92px;
+}
+
+header#main-header img {
+    width: 117px;
+    margin: 0 15px;
+}
+
+header#main-header .content {
+    display: flex;
+}
+
+header#main-header div.side {
+    display: flex;
+}
+
+header#main-header div.side span {
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header#main-header div.side span div.undescore {
+    margin-top: 10px;
+    width: 80px;
+    height: 2px;
+    border-radius: 5px;
+}
+
+header#main-header div.side span div.white {
+    background-color: white;
+}
+
+header#main-header span + span {
+    margin-left: 32px;
+}
+
+div.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.card div {
+    width: 515px;
+    height: 136px;
+    margin-top: -80px;
+    padding: 30px;
+
+    z-index: 2;
+    border-radius: 5px;
+
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+
+    color: #494545;
+    text-align: center;
+}
+
+div.surveys {
+    margin-top: 84px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0 8px;
+}
+
+th {
+    color: #757983;
+    font-weight: normal;
+    padding: 20px 32px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+td {
+    padding: 20px 32px;
+    border: 0;
+    background: #fff;
+
+    font-size: 16px;
+    font-weight: normal;
+    color: #757983;
+}
+
+td:first-child {
+    width: 500px;
+    border-radius: 8px 0 0 8px;
+}
+td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+td.title {
+    color: #363f5f;
+}
+td.active {
+    color: #12a454;
+}
+td.waiting {
+    color: #ff872c;
+}
+td.finished {
+    color: #e83f5b;
+}
