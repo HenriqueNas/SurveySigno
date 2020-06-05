@@ -3,26 +3,100 @@
 namespace View;
 use Controller\ControllerSurvey;
 
-require '../controller/ControllerSurvey.php';
+require_once '../controller/ControllerSurvey.php';
 
-$controllerSurvey = new ControllerSurvey();
-$surveys[] = $controllerSurvey->getAllSurveys();
+class ViewSurvey {
 
-class ViewSurvey
-{
+    /**
+     * @var ControllerSurvey
+     */
+    private $controllerSurvey;
+
+    /**
+     * ViewSurvey constructor.
+     */
+    public function __construct() {
+        $this->controllerSurvey = new ControllerSurvey();
+    }
+
+    /**
+     * Parse database surveys to mount
+     * html survey info
+     *
+     * @return string surveys info as html
+     */
+    public static function surveysInfo() {
+        $surveys = (new ControllerSurvey())->getAllSurveys();
+        $html = '';
+
+        foreach ($surveys as $survey) {
+            $html .=
+                <<<HTML
+                <tr class="pointer" onclick="window.location = '../pages/Survey.php?survey={$survey['id']}'" ">
+                    <td class="title pointer">{$survey['title']}</td>
+                    <td class="{$survey['class']} pointer">{$survey['status']}</td>
+                    <td>{$survey['begin']}</td>
+                    <td>{$survey['end']}</td>
+                </tr>
+            HTML;
+        }
+
+        return $html;
+    }
 
 
-    public function surveysInfo()
-    {
+    /**
+     * Parse database surveys to mount
+     * html survey card
+     *
+     * @param  int $id
+     * @return string surveys info as html
+     */
+    public static function surveysCard($id) {
+        $controllerSurvey = new ControllerSurvey();
+
+        $survey  = $controllerSurvey->getSurveyById($id);
+        $options = $controllerSurvey->getSurveyOptions($id);
+
+        $voteComponent = '';
+
+        foreach ($options as $option) {
+            $voteComponent .=
+                <<<HTML
+                    <div>
+                        <button class="pointer">{$option['name']}</button>
+                        <span>{$option['votes']} votos</span>
+                    </div>
+                HTML;
+        }
+
         $html = <<<HTML
-            <tr>
-                <td class="title">Desenvolvimento</td>
-                <td class="waiting">N�o Iniciada</td>
-                <td>13/04/2020</td>
-                <td>16/04/2020</td>
-            </tr>
+            <div id="title-survey">
+                {$survey['title']}
+            </div>
+
+            <div id="dates">
+                <div>
+                    <span>Início</span>
+                    <span>{$survey['begin']}</span>
+                </div>
+                <div>
+                    <span>Fim</span>
+                    <span>{$survey['end']}</span>
+                </div>
+            </div>
+
+            <div id="options">
+                <header>
+                    <div>Opções</div>
+                    <div>Votos</div>
+                </header>
+                $voteComponent
+            </div>
         HTML;
 
         return $html;
     }
+
+
 }

@@ -10,8 +10,7 @@ use PDO;
  *
  * @author Henrique Nascimento
  */
-class Connection
-{
+class Connection {
     // Singleton Instance
     private static $instance;
 

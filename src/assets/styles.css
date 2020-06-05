@@ -88,7 +88,7 @@ div.card div {
     margin-top: -80px;
     padding: 30px;
 
-    z-index: 2;
+    z-index: 1;
     border-radius: 5px;
 
     background: white;
@@ -126,6 +126,17 @@ td {
     color: #757983;
 }
 
+tbody tr{
+    border-radius: 8px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+tbody tr:hover {
+    color: #fff;
+    background: #da1a2c;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 td:first-child {
     width: 500px;
     border-radius: 8px 0 0 8px;
@@ -145,4 +156,110 @@ td.waiting {
 }
 td.finished {
     color: #e83f5b;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+div.survey-container {
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.survey-container div#title-survey {
+    font-size: 48px;
+    color: #494545;
+}
+
+div.survey-container div#dates {
+    font-size: 22px;
+    color: #757983;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.survey-container div#dates div {
+    margin: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div.survey-container div#dates div span {
+    margin-bottom: 10px;
+}
+
+div.survey-container div#options {
+    padding: 30px;
+    padding-bottom: 50px;
+    width: 540px;
+
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.survey-container div#options header {
+    width: 100%;
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-weight: normal;
+    font-size: 18px;
+    color: #494545;
+}
+
+div.survey-container div#options div {
+    margin-top: 20px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.survey-container div#options div button {
+    width: 170px;
+    height: 50px;
+    border: 0px;
+    border-radius: 5px;
+    transition: background-color 0.5s, color 0.5s;
+
+    font-size: 14px;
+    color: #ffffff;
+    background: #da1a2c;
+}
+
+
+div.survey-container div#options div button:hover {
+    color: #da1a2c;
+    background: #ffffff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+ }
+
+div.survey-container div#options div span {
+    width: 170px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
 }

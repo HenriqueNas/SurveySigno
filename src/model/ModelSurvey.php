@@ -1,7 +1,7 @@
 <?php
 
 namespace Model;
-require '../Connection.php';
+require_once '../Connection.php';
 
 use Connection\Connection;
 use PDO;
@@ -31,14 +31,47 @@ class ModelSurvey {
 
     /**
      * Get all surveys from database
+     *
+     * @return array|null
      */
     public function all() {
+        $allSurveys = null;
+
         $sSql =   'SELECT * FROM ' .$this->table;
+        
+        $result = $this->conn->prepare($sSql);
+        $result->execute();
+
+        if ($result->rowCount() > 0) {
+            $allSurveys = $result->fetchAll(PDO::FETCH_OBJ);
+        }
+
+
+        return $allSurveys;
+    }
+
+
+    /**
+     * Get specific survey from database
+     *
+     * @param int $id
+     * @return array|null
+     */
+    public function surveyById($id) {
+        $surveyOptions = null;
+
+        $sSql =  ' SELECT * FROM ' .$this->table
+                .'  WHERE id = '. $id ;
 
         $result = $this->conn->prepare($sSql);
         $result->execute();
-        return $result->fetch(PDO::FETCH_OBJ);
-    }
 
+        if ($result->rowCount() > 0) {
+            $surveyOptions = $result->fetch(PDO::FETCH_OBJ);
+        }
+
+
+        return $surveyOptions;
+    }
 
 }

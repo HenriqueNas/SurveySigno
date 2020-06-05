@@ -1,17 +1,17 @@
 <?php
-require '../view/ViewSurvey.php';
+require_once '../view/ViewSurvey.php';
 use View\ViewSurvey;
-
-$viewSurvey = new ViewSurvey();
 
 ?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/styles.css" />
+
+    <link rel="stylesheet" type="text/css"  href="../assets/styles.css" />
+    <link rel="icon" type="image/png" href="https://site.signoweb.com.br/assets/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 
     <title>SurveySigno</title>
 </head>
@@ -22,7 +22,7 @@ $viewSurvey = new ViewSurvey();
         <img src="../assets/logo-signo.svg" alt="Logo SignoWeb" />
         <div></div>
         <div class="side">
-          <span>
+          <span onclick="window.location = '../pages/Dashboard.php'">
             <strong>Enquetes</strong>
             <div class="undescore white"></div>
           </span>
@@ -35,21 +35,21 @@ $viewSurvey = new ViewSurvey();
 </header>
 
 <div class="card">
-    <div>todos</div>
+    <div>Fazer alguma coisa de bonito aqui</div>
 </div>
 
 <div class="content surveys">
     <table>
         <thead>
         <tr>
-            <th>Título</th>
+            <th>TÃ­tulo</th>
             <th>Status</th>
-            <th>Início</th>
+            <th>InÃ­cio</th>
             <th>Fim</th>
         </tr>
         </thead>
         <tbody>
-            <?php echo $viewSurvey->surveysInfo() ?>
+            <?php echo ViewSurvey::surveysInfo() ?>
         </tbody>
     </table>
 </div>
